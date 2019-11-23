@@ -13,15 +13,15 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.testtrasmontano.ui.dashboard.DashboardFragment"
+        android:name="com.example.testtrasmontano.ui.dashboard.AlarmeFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_alarme" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.testtrasmontano.ui.notifications.NotificationsFragment"
+        android:name="com.example.testtrasmontano.ui.notifications.CarteirinhaFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_carteirinha" />
 
     <fragment
         android:id="@+id/navigation_fale_conosco"

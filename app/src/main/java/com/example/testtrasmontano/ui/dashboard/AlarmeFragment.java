@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.testtrasmontano.R;
 
-public class DashboardFragment extends Fragment {
+public class AlarmeFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private AlarmeViewModel alarmeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        alarmeViewModel =
+                ViewModelProviders.of(this).get(AlarmeViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_alarme, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(this, new Observer<String>() {
+        alarmeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
