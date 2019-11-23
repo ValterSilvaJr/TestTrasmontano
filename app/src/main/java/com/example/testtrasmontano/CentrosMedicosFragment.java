@@ -5,10 +5,18 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.testtrasmontano.Model.CentrosMedicosModel;
+import com.example.testtrasmontano.Util.CarregarLista;
+import com.example.testtrasmontano.Util.CentrosMedicosAdapter;
+
+import java.util.List;
 
 
 /**
@@ -28,6 +36,9 @@ public class CentrosMedicosFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView mRecyclerView;
+    private View root;
+    private List<CentrosMedicosModel> sedes;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,8 +76,19 @@ public class CentrosMedicosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_centros_medicos, container, false);
+        root = inflater.inflate(R.layout.fragment_centros_medicos, container, false);
+
+        setupRecyclerView();
+
+        return root;
+    }
+
+    private void setupRecyclerView() {
+
+        mRecyclerView = root.findViewById(R.id.recycler_centros);
+        this.sedes = CarregarLista.getCentrosMedicos(getContext());
+        mRecyclerView.setAdapter(new CentrosMedicosAdapter(sedes, getContext()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
